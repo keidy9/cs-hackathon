@@ -1,14 +1,26 @@
 {
     "manifest_version": 3,
-    "name": "My Extension",
-    "version": "1.0.2",
-    "description": "A plain text description",
-    "run_at": "document_idle",
+    "name": "Find HankBob",
+    "version": "1.0.3",
+    "description": "HankBob is hidden somewhere in your browser. Your job is to find him!",
     "content_scripts": [
-        {
-          "matches": ["*://*/*"],
-          "js": ["main.js"],
-          "css": ["styles.css"]
-        }
-      ]
+      {
+        "matches": ["*://*/*"],
+        "js": ["main.js"],
+        "css": ["styles.css"]
+      }
+    ],
+    "optional_host_permissions": ["file://*/*"],
+    "web_accessible_resources": [
+      {
+        "resources": ["assets/hank.jpeg", "assets/hank-audio.mp3", "assets/favicon128.png"],
+        "matches": ["<all_urls>"]
+      }
+    ],
+    "icons": {
+        "128": "assets/favicon128.png"
+    },
+    "browser_action": {
+        "default_icon": "assets/favicon128.png"
+    }
   }
